@@ -1,3 +1,10 @@
 <!--index.wxml-->
 <SearchInput></SearchInput>
-  
+
+<swiper class="" indicator-dots autoplay interval="{{3000}}" circular indicator-color="rgba(255, 255, 255, 0.5)" indicator-active-color="rgb(255,255,255)">
+	<swiper-item wx:for="{{ swiperList }}" wx:for-item="swiperItem" wx:key="goods_id" class="" item-id="">
+		<image class="" src="{{swiperItem.image_src}}" mode="widthFix" lazy-load="false" binderror="" bindload="" />
+
+	</swiper-item>
+
+</swiper>
