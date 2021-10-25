@@ -1,18 +1,18 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/category/index",
+    "pages/category/main",
     "pages/goods_list/index",
-    "pages/goods_detail/index",
-    "pages/cart/index",
-    "pages/collect/index",
-    "pages/order/index",
-    "pages/search/index",
-    "pages/user/index",
-    "pages/feedback/index",
-    "pages/login/index",
-    "pages/auth/index",
-    "pages/pay/index"
+    "pages/goods_detail/main",
+    "pages/cart/main",
+    "pages/collect/main",
+    "pages/order/main",
+    "pages/search/main",
+    "pages/user/main",
+    "pages/feedback/main",
+    "pages/login/main",
+    "pages/auth/main",
+    "pages/pay/main"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -31,25 +31,26 @@
         "selectedIconPath": "icons/home-o.png"
       },
       {
-        "pagePath": "pages/category/index",
+        "pagePath": "pages/category/main",
         "text": "分类",
         "iconPath": "icons/category.png",
         "selectedIconPath": "icons/category-o.png"
       },
       {
-        "pagePath": "pages/cart/index",
+        "pagePath": "pages/cart/main",
         "text": "购物车",
         "iconPath": "icons/cart.png",
         "selectedIconPath": "icons/cart-o.png"
       },
       {
-        "pagePath": "pages/user/index",
+        "pagePath": "pages/user/main",
         "text": "我的",
         "iconPath": "icons/my.png",
         "selectedIconPath": "icons/my-o.png"
       }
     ],
     "color": "#A3A6A8",
-    "selectedColor": "#ffffff"
+    "selectedColor": "#eb4450",
+    "borderStyle": "white"
   }
 }
