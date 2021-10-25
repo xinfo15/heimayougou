@@ -1,0 +1,1 @@
+.search-input{background-color:var(--themeColor);height:90rpx;padding:15rpx}.search-input .input-wrapper{height:100%;background-color:#fff;border-radius:4px;display:flex;justify-content:center;align-items:center}.search-input .input-wrapper navigator{color:#a9a6a0;font-size:30rpx}

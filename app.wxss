@@ -1,0 +1,11 @@
+/* 定义全局变量 */
+page {
+    --themeColor: #eb4450;
+}
+
+/* 标签初始化 */
+page, view, text, image, radio, checkbox {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
