@@ -1,0 +1,79 @@
+/**index.wxss**/
+.index-container {
+  // 首页轮播图
+  .index-swiper {
+    margin-bottom: 20rpx;
+
+    swiper {
+      height: calc(750rpx / 750 * 340);
+
+      swiper-item {
+        image {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  // 首页导航图片
+  .index-navigator {
+    display: flex;
+    margin-bottom: 20rpx;
+
+    navigator {
+      flex: 1 1 auto;
+      margin: 0 30rpx 0 30rpx;
+    }
+
+    image {
+      width: 100%;
+    }
+  }
+
+  .index-floor-wrapper {
+    .index-floor {
+      margin: 0 2vw;
+
+      .floor-title {
+        margin-top: 15rpx;
+        margin-bottom: 15rpx;
+
+        image {
+          width: 100%;
+        }
+      }
+
+      .floor-pic {
+        overflow: hidden;
+        // 计算高度 main-pic -> height
+        // 386 / 232 = height / 32vw
+        // height = 386 / 232 * 32vw / 2
+        // 除开第一章主图
+
+        navigator {
+          width: 32vw;
+          float: left;
+
+          &:not(:first-child) {
+            height: calc(386 / 232 * 32vw / 2);
+            border-left: 10rpx solid transparent;
+
+            image {
+              height: 100%;
+              border-radius: 4rpx;
+            }
+          }
+
+          &:nth-last-child(1),
+          &:nth-last-child(2) {
+            border-top: 10rpx solid transparent;
+          }
+
+          image {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

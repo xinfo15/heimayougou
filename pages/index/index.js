@@ -1,35 +1,64 @@
+import { request } from '../../request/index.js'
+
 //Page Object
 Page({
   data: {
+    // 轮播图图片
     swiperList: [],
+    // 导航图片
+    navigatorList: [],
+    // 楼层图片
+    floorList: [],
   },
-  //options(Object)
+  // 当对象刚建立完毕类似created
   onLoad: function (options) {
-    wx.request({
-      url: 'https://api-hmugo-web.itheima.net/api/public/v1/home/swiperdata',
-      complete: (res) => {},
-      fail: (res) => {},
-      method: 'GET',
-      success: (result) => {
-        const {
-          data: { message: data }
-        } = result
-        this.setData({
-          swiperList: data
-        });
+    this.getSwiperList()
+    this.getNavgatorList()
+    this.getFloorList()
+  },
 
-        console.log(this.data.swiperList);
-      },
+  // 获取轮播图图片
+  getSwiperList() {
+    request({
+      url: '/api/public/v1/home/swiperdata',
+      method: 'GET',
+    }).then((result) => {
+      this.setData({
+        swiperList: result.data.message,
+      })
     })
   },
-  onShow: function () {},
-  onReady: function () {},
-  onHide: function () {},
-  onUnload: function () {},
-  onPullDownRefresh: function () {},
-  onReachBottom: function () {},
-  onShareAppMessage: function () {},
-  onPageScroll: function () {},
-  //item(index,pagePath,text)
-  onTabItemTap: function (item) {},
+
+  // 获取导航图片
+  getNavgatorList() {
+    request({
+      method: 'GET',
+      url: '/api/public/v1/home/catitems',
+    }).then((res) => {
+      this.setData({
+        navigatorList: res.data.message,
+      })
+    })
+  },
+
+  // 获取图片楼层
+  getFloorList() {
+    request({
+      url: '/api/public/v1/home/floordata',
+      method: 'GET',
+    }).then((res) => {
+      const floorList = res.data.message
+      
+      // 返回的接口中只有goods_list，没有goods_list/index 自己加上
+      for (const floorItem of floorList) {
+        for (const productItem of floorItem.product_list) {
+          productItem.navigator_url = productItem.navigator_url.replace('goods_list?', 'goods_list/index?')
+        }
+      }
+
+      this.setData({
+        floorList: floorList,
+      })
+    })
+  },
 })

@@ -1,10 +1,50 @@
 <!--index.wxml-->
-<SearchInput></SearchInput>
+<view class="index-container">
+	<SearchInput></SearchInput>
 
-<swiper class="" indicator-dots autoplay interval="{{3000}}" circular indicator-color="rgba(255, 255, 255, 0.5)" indicator-active-color="rgb(255,255,255)">
-	<swiper-item wx:for="{{ swiperList }}" wx:for-item="swiperItem" wx:key="goods_id" class="" item-id="">
-		<image class="" src="{{swiperItem.image_src}}" mode="widthFix" lazy-load="false" binderror="" bindload="" />
+	<!-- 首页轮播图 -->
+	<view class="index-swiper">
+		<swiper class="" indicator-dots autoplay interval="{{3000}}" circular indicator-color="rgba(255, 255, 255, 0.5)" indicator-active-color="rgb(255,255,255)">
+			<swiper-item wx:for="{{ swiperList }}" wx:for-item="swiperItem" wx:key="goods_id" class="" item-id="">
+				<navigator url="{{ swiperItem.navigator_url }}" open-type="{{ swiperItem.open_type }}">
+					<image class="" src="{{swiperItem.image_src}}" mode="widthFix" lazy-load="false" binderror="" bindload="" />
+				</navigator>
 
-	</swiper-item>
 
-</swiper>
+
+			</swiper-item>
+
+		</swiper>
+	</view>
+
+	<!-- 首页导航图片 -->
+	<view class="index-navigator">
+		<navigator wx:for="{{ navigatorList }}" wx:for-item="navItem" wx:key="name" url="{{ navItem.navigator_url }}" open-type="{{navItem.open_type}}">
+			<image class="" src="{{ navItem.image_src }}" mode="widthFix" lazy-load="false" binderror="" bindload="" />
+
+		</navigator>
+
+	</view>
+
+	<!-- 首页图片楼层 -->
+	<view class="index-floor-wrapper">
+		<view class="index-floor" wx:for="{{floorList}}" wx:for-item="floorItem" wx:for-index="floorIndx" wx:key="floorIndx">
+			<view class="floor-title">
+				<image class="" src="{{floorItem.floor_title.image_src}} " mode="widthFix" lazy-load="false" binderror="" bindload="" />
+
+			</view>
+
+			<view class="floor-pic">
+
+				<navigator wx:for="{{floorItem.product_list}}" wx:for-item="productItem" wx:for-index="productIdx" wx:key="productIdx" url="{{productItem.navigator_url}}" open-type="{{productItem.open_type}}">
+
+					<image class="" src="{{ productItem.image_src}}" mode="{{productIdx ? 'aspectFill' : 'widthFix'}}" lazy-load="false" binderror="" bindload="" />
+
+				</navigator>
+			</view>
+		</view>
+	</view>
+
+
+
+</view>
