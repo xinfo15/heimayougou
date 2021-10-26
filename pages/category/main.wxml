@@ -1,2 +1,37 @@
 <!--pages/category/main.wxml-->
-<text>pages/category/main.wxml</text>
+<view class="category-container">
+	<SearchInput></SearchInput>
+
+	<view class="category-main">
+		<view class="aside">
+			<view class="menu-list">
+				<view class="menu-item-wrapper" wx:for="{{ leftMenuList }}" wx:for-item="menuItem" wx:for-index="menuIdx" wx:key="menuIdx">
+					<view class="menu-item {{ menuIdx === cateActiveIdx ? 'active' : '' }} ">
+						{{ menuItem }}
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="content">
+			<view class="content-list">
+				<view class="content-item" wx:for="{{rightContentList}}" wx:for-item="contentItem" wx:for-index="cat_id" wx:key="contentIdx">
+					<view class="content-title">
+						<text>/</text>
+						{{ contentItem.cat_name}}
+						<text>/</text>
+					</view>
+					<view class="content-pic-list" wx:for="{{contentItem.children}}" wx:for-item="picItem" wx:for-index="picIdx" wx:key="cat_id">
+						<view class="pic-item">
+							<image src="{{picItem.cat_icon}}" mode="widthFix" lazy-load="true" binderror="" bindload="" />
+              <view class="pic-desc">
+                {{picItem.cat_name}}
+              </view>
+                
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+
+</view>

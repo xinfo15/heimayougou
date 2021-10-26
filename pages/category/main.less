@@ -1,0 +1,70 @@
+/* pages/category/main.wxss */
+.category-container {
+  .category-main {
+    display: flex;
+
+    .aside {
+      flex: 0 0 auto;
+
+      .menu-list {
+        .menu-item-wrapper {
+          padding: 10rpx 0;
+          border-bottom: 1rpx solid rgb(218, 218, 218);
+
+          .menu-item {
+            text-align: center;
+            color: #333;
+            border-left: 10rpx solid transparent;
+
+            &.active {
+              color: red;
+              // box-shadow: 0rpx -10rpx 0rpx 0rpx red inset;
+              border-color: red;
+            }
+          }
+        }
+      }
+    }
+    .content {
+      flex: 1 1 auto;
+
+      .content-list {
+        .content-item {
+          overflow: hidden;
+
+          .content-title {
+            text-align: center;
+            
+            text {
+              color: rgb(216,216,216);
+              margin-right: 20rpx;
+              margin-left: 20rpx;
+            }
+          }
+
+          .content-pic-list {
+            
+
+            .pic-item {
+              width: 33.333%;
+              float: left;
+              padding: 30rpx;
+
+              image {
+                width: 100%;
+              }
+
+              .pic-desc {
+                font-size: 30rpx;
+                text-align: center;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

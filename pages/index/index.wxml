@@ -10,8 +10,6 @@
 					<image class="" src="{{swiperItem.image_src}}" mode="widthFix" lazy-load="false" binderror="" bindload="" />
 				</navigator>
 
-
-
 			</swiper-item>
 
 		</swiper>
