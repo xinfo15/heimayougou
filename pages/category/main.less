@@ -1,54 +1,81 @@
 /* pages/category/main.wxss */
 .category-container {
   .category-main {
+    height: calc(100vh - 90rpx);
     display: flex;
 
+    // 左侧菜单
     .aside {
       flex: 0 0 auto;
+      height: 100%;
+
+      scroll-view {
+        height: 100%;
+      }
 
       .menu-list {
         .menu-item-wrapper {
-          padding: 10rpx 0;
+          padding: 20rpx 20rpx 15rpx 0;
           border-bottom: 1rpx solid rgb(218, 218, 218);
+          background-color: rgb(244, 244, 244);
 
-          .menu-item {
-            text-align: center;
-            color: #333;
-            border-left: 10rpx solid transparent;
+          &.active {
+            background-color: white;
 
-            &.active {
+            .menu-item {
               color: red;
               // box-shadow: 0rpx -10rpx 0rpx 0rpx red inset;
               border-color: red;
             }
           }
+
+          .menu-item {
+            text-align: center;
+            color: #333;
+            border-left: 3px solid transparent;
+          }
         }
       }
     }
+
+    // 右侧内容
     .content {
+      height: 100%;
       flex: 1 1 auto;
+
+      scroll-view {
+        height: 100%;
+      }
 
       .content-list {
         .content-item {
           overflow: hidden;
 
           .content-title {
+            margin-top: 30rpx;
             text-align: center;
-            
+            font-size: 30rpx;
+
             text {
-              color: rgb(216,216,216);
+              
+              color: rgb(216, 216, 216);
               margin-right: 20rpx;
               margin-left: 20rpx;
             }
           }
 
           .content-pic-list {
-            
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 20rpx;
+
+            .pic-item-wrapper {
+              width: 33.333%;
+            }
 
             .pic-item {
-              width: 33.333%;
-              float: left;
-              padding: 30rpx;
+              width: 100%;
+              padding: 45rpx 30rpx 0 30rpx;
 
               image {
                 width: 100%;

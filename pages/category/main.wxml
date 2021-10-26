@@ -3,35 +3,51 @@
 	<SearchInput></SearchInput>
 
 	<view class="category-main">
+		<!-- 左侧菜单 -->
 		<view class="aside">
-			<view class="menu-list">
-				<view class="menu-item-wrapper" wx:for="{{ leftMenuList }}" wx:for-item="menuItem" wx:for-index="menuIdx" wx:key="menuIdx">
-					<view class="menu-item {{ menuIdx === cateActiveIdx ? 'active' : '' }} ">
-						{{ menuItem }}
-					</view>
-				</view>
-			</view>
-		</view>
-		<view class="content">
-			<view class="content-list">
-				<view class="content-item" wx:for="{{rightContentList}}" wx:for-item="contentItem" wx:for-index="cat_id" wx:key="contentIdx">
-					<view class="content-title">
-						<text>/</text>
-						{{ contentItem.cat_name}}
-						<text>/</text>
-					</view>
-					<view class="content-pic-list" wx:for="{{contentItem.children}}" wx:for-item="picItem" wx:for-index="picIdx" wx:key="cat_id">
-						<view class="pic-item">
-							<image src="{{picItem.cat_icon}}" mode="widthFix" lazy-load="true" binderror="" bindload="" />
-              <view class="pic-desc">
-                {{picItem.cat_name}}
-              </view>
-                
+			<scroll-view scroll-y>
+
+				<view class="menu-list">
+					<!-- 单个菜单 -->
+					<view bindtap="changeCateActive" data-menu-idx="{{menuIdx}}" class="menu-item-wrapper {{ menuIdx === cateActiveIdx ? 'active' : '' }} " wx:for="{{ leftMenuList }}" wx:for-item="menuItem" wx:for-index="menuIdx" wx:key="menuIdx">
+						<view class="menu-item">
+							{{ menuItem }}
 						</view>
 					</view>
 				</view>
-			</view>
+			</scroll-view>
 		</view>
+
+		<!-- 右侧内容 -->
+		<view class="content">
+			<scroll-view scroll-y scroll-top="{{rightContentScrollTop}}">
+				<view class="content-list">
+					<view class="content-item" wx:for="{{rightContentList}}" wx:for-item="contentItem" wx:for-index="cat_id" wx:key="contentIdx">
+						<view class="content-title">
+							<text>/</text>
+							{{ contentItem.cat_name}}
+							<text>/</text>
+						</view>
+						<view class="content-pic-list">
+							<!-- 单个商品图片 -->
+							<navigator class="pic-item-wrapper" wx:for="{{contentItem.children}}" wx:for-item="picItem" wx:for-index="picIdx" wx:key="cat_id" url="/pages/goods_list/index?cid={{picItem.cat_id}}">
+								<view class="pic-item">
+
+									<image src="{{picItem.cat_icon}}" mode="widthFix" lazy-load="true" binderror="" bindload="" />
+									<view class="pic-desc">
+										{{picItem.cat_name}}
+									</view>
+
+								</view>
+							</navigator>
+						</view>
+					</view>
+				</view>
+			</scroll-view>
+		</view>
+
+
+
 	</view>
 
 </view>
