@@ -1,0 +1,119 @@
+/* pages/goods_detail/index.wxss */
+
+.goods-detail-container {
+  // 轮播图
+  swiper {
+    padding-top: 20rpx;
+    height: calc(750rpx * 0.65);
+
+    swiper-item {
+      text-align: center;
+
+      image {
+        width: 65%;
+      }
+    }
+  }
+  //商品名称描述
+  .goods-describe {
+    .goods-price {
+      color: var(--themeColor);
+      font-size: 36rpx;
+      padding: 0 15rpx;
+      font-weight: bold;
+    }
+
+    .goods-name-wrapper {
+      color: rgb(148, 138, 136);
+      display: flex;
+      padding: 10rpx 0;
+      margin: 0 10rpx;
+      border-bottom: 10px solid rgb(238, 238, 238);
+
+      .goods-name {
+        flex: 1 1 auto;
+        border-right: 2px solid rgb(233, 233, 233);
+      }
+      .colle {
+        flex: 0 0 auto;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0 20rpx;
+        border-left: 2px solid rgb(192, 192, 192);
+      }
+    }
+  }
+  //图文详情
+  .detail-content {
+    .detail-title {
+      padding: 20rpx;
+      color: var(--themeColor);
+      font-size: 36rpx;
+      font-weight: bold;
+    }
+  }
+  // 底部工具栏
+  .bott-tool-wrapper {
+    height: 80rpx;
+
+    .bott-tool {
+      display: flex;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      height: 80rpx;
+      border-top: 1px solid lightgray;
+      background-color: white;
+
+      & > view,
+      & > navigator {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      button {
+        width: auto;
+        height: auto;
+        padding: 0;
+        margin: 0;
+      }
+
+      .contact-service,
+      .share,
+      .cart {
+        flex: 1;
+        text-align: center;
+        font-size: 25rpx;
+
+        button {
+          font-size: 25rpx;
+          font-weight: initial;
+          background-color: transparent;
+          color: inherit;
+          line-height: initial;
+        }
+      }
+
+      .add-cart,
+      .buy {
+        flex: 2;
+        text-align: center;
+        color: white;
+        font-size: 28rpx;
+      }
+
+      .add-cart {
+        background-color: rgb(255, 165, 0);
+      }
+
+      .buy {
+        background-color: var(--themeColor);
+      }
+    }
+  }
+}

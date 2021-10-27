@@ -24,7 +24,7 @@ Page({
       method: 'GET',
     }).then((result) => {
       this.setData({
-        swiperList: result.data.message,
+        swiperList: result,
       })
     })
   },
@@ -36,7 +36,7 @@ Page({
       url: '/api/public/v1/home/catitems',
     }).then((res) => {
       this.setData({
-        navigatorList: res.data.message,
+        navigatorList: res,
       })
     })
   },
@@ -47,7 +47,7 @@ Page({
       url: '/api/public/v1/home/floordata',
       method: 'GET',
     }).then((res) => {
-      const floorList = res.data.message
+      const floorList = res
       
       // 返回的接口中只有goods_list，没有goods_list/index 自己加上
       for (const floorItem of floorList) {

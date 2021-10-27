@@ -1,16 +1,35 @@
 const baseUrl = 'https://api-hmugo-web.itheima.net'
 
+// 同时调用请求的个数
+let requestCnt = 0
+
 export const request = (params) => {
-  params.url = baseUrl + params.url;
+  // 调用一次加一次
+  requestCnt++
+  // 显示loading提示
+  wx.showLoading({
+    title: '加载中...',
+    mask: true
+  })
+  // 拼接baseUrl
+  params.url = baseUrl + params.url
+
   return new Promise((resolve, reject) => {
     wx.request({
       ...params,
       success: (result) => {
-        resolve(result);
+        const { data: {message: res}} = result
+        resolve(res)
       },
       fail: (res) => {
-        reject(res);
-      }
+        reject(res)
+      },
+      complete: () => {
+        // 请求返回一次减一次
+        requestCnt--
+        // 请求都返回完成后，关闭loading提示
+        if (requestCnt === 0) wx.hideLoading()
+      },
     })
   })
 }

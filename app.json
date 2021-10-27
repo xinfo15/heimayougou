@@ -3,8 +3,8 @@
     "pages/index/index",
     "pages/category/main",
     "pages/goods_list/index",
-    "pages/goods_detail/main",
-    "pages/cart/main",
+    "pages/goods_detail/index",
+    "pages/cart/index",
     "pages/collect/main",
     "pages/order/main",
     "pages/search/main",
@@ -39,7 +39,7 @@
         "selectedIconPath": "icons/category-o.png"
       },
       {
-        "pagePath": "pages/cart/main",
+        "pagePath": "pages/cart/index",
         "text": "购物车",
         "iconPath": "icons/cart.png",
         "selectedIconPath": "icons/cart-o.png"

@@ -48,13 +48,10 @@ Page({
 
   // 获取分类信息
   async getCateList() {
-    const {
-      data: { message: cateList },
-    } = await request({
+    const cateList = await request({
       url: '/api/public/v1/categories',
     })
 
-    // const cateList = data.message
     // 设置缓存
     wx.setStorageSync('cate_list', { time: Date.now(), cate_list: cateList })
 

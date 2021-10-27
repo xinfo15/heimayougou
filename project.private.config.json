@@ -13,9 +13,9 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/goods_list/index",
-          "pathName": "pages/goods_list/index",
-          "query": "cid=5",
+          "name": "pages/cart/index",
+          "pathName": "pages/cart/index",
+          "query": "",
           "scene": null
         },
         {

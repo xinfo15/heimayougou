@@ -1,2 +1,81 @@
 <!--pages/goods_detail/index.wxml-->
-<text>pages/goods_detail/index.wxml</text>
+<view class="goods-detail-container">
+	<!-- 轮播图 -->
+	<swiper indicator-dots indicator-color="rgba(0,0,0,.3)" autoplay interval="3000">
+		<!-- 单个图片 -->
+		<swiper-item wx:for="{{goodsDetail.pics}}" wx:for-item="picItem" wx:key="pics_id" bindtap="previewImg" data-src="{{picItem.pics_mid}}">
+			<image src="{{picItem.pics_mid}}" mode="widthFix" lazy-load="false" binderror="" bindload="" />
+		</swiper-item>
+
+	</swiper>
+
+	<!-- 商品名称描述 -->
+	<view class="goods-describe">
+		<view class="goods-price">
+			￥ {{goodsDetail.goods_price}}
+		</view>
+		<view class="goods-name-wrapper">
+			<view class="goods-name">
+				{{goodsDetail.goods_name}}
+			</view>
+			<view class="colle">
+				<view class="iconfont icon-shoucang">
+				</view>
+				收藏
+			</view>
+		</view>
+	</view>
+
+	<!-- 图文详情 -->
+	<view class="detail-content">
+		<view class="detail-title">
+			图文详情
+		</view>
+		<view class="detail-main">
+			<rich-text class="" nodes="{{goodsDetail.goods_introduce}}">
+
+			</rich-text>
+
+		</view>
+
+	</view>
+
+	<!-- 底部工具栏 -->
+	<view class="bott-tool-wrapper">
+		<view class="bott-tool">
+			<!-- 客户 -->
+			<view class="contact-service">
+				<button open-type="contact">
+					<view class="iconfont icon-kefu">
+					</view>
+					联系客服
+				</button>
+
+			</view>
+			<!-- 分享 -->
+			<view class="share">
+				<button open-type="share">
+					<view class="iconfont icon-fenxiang">
+					</view>
+					分享
+				</button>
+			</view>
+			<!-- 购物车 -->
+			<navigator class="cart" url="/pages/cart/index" open-type="switchTab">
+				<view class="iconfont icon-gouwuche">
+
+				</view>
+				购物车
+			</navigator>
+			<!-- 加入购物车 -->
+			<view class="add-cart" bindtap="addCart">
+				加入购物车
+			</view>
+			<!-- 立即购买 -->
+			<view class="buy">
+				立即购买
+			</view>
+
+		</view>
+	</view>
+</view>
