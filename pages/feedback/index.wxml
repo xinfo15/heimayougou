@@ -1,2 +1,29 @@
 <!--pages/feedback/index.wxml-->
-<text>pages/feedback/index.wxml</text>
+<view class="feedback-container">
+  <Tabs tabList="{{ tabList }}" bindchangetab="changeTabAcitive">
+    <block class="wx-slot">
+      <block wx:if="{{ tabList[0].isActive }}">
+        <view class="question">
+          <view class="tip"> 问题的种类 </view>
+
+          <view class="question-list">
+            <view wx:for="{{ questionList }}" wx:for-item="questionItem" wx:key="id" class="question-item-wrapper" data-id="{{ questionItem.id }}" bindtap="toggleQuestionActive">
+              <view class="question-item {{ questionItem.isActive ? 'active' : '' }}"> {{questionItem.value}}</view>
+            </view>
+          </view>
+
+          <view class="edit-field">
+            <textarea value="{{questionDetail}}" bindinput="inputQuestionDetail" name="" id="" cols="30" rows="10" placeholder="请描述一下你的问题"></textarea>
+            <!-- 上传图片组件 -->
+            <SelectImg filePaths="{{ filePaths }}" bindchangeimg="changeImg"></SelectImg>
+          </view>
+
+          <view class="submit-btn">
+            <button type="warn" bindtap="submit">提交</button>
+          </view>
+        </view>
+      </block>
+      <block wx:if="{{ tabList[1].isActive }}"> 1 </block>
+    </block>
+  </Tabs>
+</view>

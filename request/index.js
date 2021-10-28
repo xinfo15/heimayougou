@@ -9,8 +9,15 @@ export const request = (params) => {
   // 显示loading提示
   wx.showLoading({
     title: '加载中...',
-    mask: true
+    mask: true,
   })
+
+  // 如果路径中有 /my/ 则带上token
+  if (/\/my\//.test(params.url)) {
+    params.header = { ...params.header }
+    params.header['Authorization'] = wx.getStorageSync('token')
+  }
+
   // 拼接baseUrl
   params.url = baseUrl + params.url
 
@@ -18,7 +25,9 @@ export const request = (params) => {
     wx.request({
       ...params,
       success: (result) => {
-        const { data: {message: res}} = result
+        const {
+          data: { message: res },
+        } = result
         resolve(res)
       },
       fail: (res) => {

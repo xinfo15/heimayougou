@@ -44,8 +44,10 @@ Page({
     // 全选，为空的时候，不全选
     if (cartList.length !== 0 && totalNum === cartList.length) allChecked = true
 
+    const address = wx.getStorageSync('address') ?? {}
+
     this.setData({
-      address: wx.getStorageSync('address') ?? {},
+      address,
       cartList: cartList,
       totalPrice,
       totalNum,
@@ -65,6 +67,7 @@ Page({
       // 如果用户第一次授权了收货地址
       const address = await chooseAddress()
       // 将选中的地址缓存
+      address.full = address.provinceName + address.cityName + address.countyName + address.detailInfo
       wx.setStorageSync('address', address)
     } catch (error) {
       console.log(error)
@@ -204,6 +207,30 @@ Page({
       totalPrice,
       totalNum,
       allChecked,
+    })
+  },
+  // 点击结算
+  tapPay() {
+    const address = wx.getStorageSync('address')
+
+    if (address.errMsg !== 'chooseAddress:ok') {
+      wx.showToast({
+        title: '请选择收货地址！',
+        icon: 'error',
+      })
+      return
+    }
+
+    if (this.data.totalNum <= 0) {
+      wx.showToast({
+        title: '至少选一样商品！',
+        icon: 'error',
+      })
+      return
+    }
+
+    wx.navigateTo({
+      url: '/pages/pay/index',
     })
   },
 })

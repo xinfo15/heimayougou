@@ -8,6 +8,8 @@ Page({
   data: {
     gid: undefined,
     goodsDetail: {},
+    // 是否收藏当前商品
+    isColle: false,
   },
 
   /**
@@ -18,6 +20,8 @@ Page({
       gid: parseInt(options.gid),
     })
     if (this.data.gid) this.getGoodsDetail(this.data.gid)
+
+    this.checkIsColle()
   },
 
   /**
@@ -78,6 +82,46 @@ Page({
       title: '添加成功！',
       icon: 'success',
       mask: true,
+    })
+  },
+
+  // 检测是否收藏当前商品
+  checkIsColle() {
+    const colleList = wx.getStorageSync('colle') || []
+
+    const gid = this.data.gid
+    const idx = colleList.findIndex((item) => item.goods_id === gid)
+    const res = idx !== -1
+
+    if (this.data.isColle !== res) {
+      this.setData({
+        isColle: res,
+      })
+    }
+
+    return res
+  },
+  // 收藏商品
+  toggleColle() {
+    const colleList = wx.getStorageSync('colle') || []
+    const gid = this.data.gid
+    const idx = colleList.findIndex((item) => item.goods_id === gid)
+    let isColle
+
+    // 没有收藏，则收藏
+    if (idx === -1) {
+      colleList.push(this.data.goodsDetail)
+      isColle = true
+    } else {
+      // 已经收藏，则取消
+      colleList.splice(idx, 1)
+      isColle = false
+    }
+
+    wx.setStorageSync('colle', colleList)
+
+    this.setData({
+      isColle,
     })
   },
 })

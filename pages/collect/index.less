@@ -1,0 +1,48 @@
+/* pages/collect/index.wxss */
+
+.collect-container {
+  background-color: rgb(243, 244, 246);
+  min-height: 100vh;
+}
+
+.content-list {
+  .content-item {
+    display: flex;
+    border-bottom: 1px solid lightgray;
+    background-color: white;
+    margin-bottom: 10rpx;
+    padding: 10rpx 0;
+
+    &:first-child {
+      margin-top: 10rpx;
+    }
+
+    .left-img {
+      flex: 2;
+      text-align: center;
+
+      image {
+        width: 70%;
+      }
+    }
+
+    .right-content {
+      flex: 3;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+
+      .content-name {
+        display: -webkit-box;
+        overflow: hidden;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+      }
+
+      .content-price {
+        color: var(--themeColor);
+        font-size: 32rpx;
+      }
+    }
+  }
+}

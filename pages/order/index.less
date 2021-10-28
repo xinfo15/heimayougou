@@ -1,0 +1,31 @@
+/* pages/order/index.wxss */
+.order-container {
+  .order-list {
+    .order-item {
+      padding: 25rpx 20rpx 15rpx 20rpx;
+      border-bottom: 1px solid lightgray;
+
+      & > view {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10rpx;
+
+        .left-tip {
+          color: gray;
+        }
+      }
+
+      .order-num {
+        color: gray;
+      }
+
+      .order-price {
+        .price {
+          color: var(--themeColor);
+          font-size: 38rpx;
+        }
+      }
+    }
+  }
+}

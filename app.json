@@ -5,14 +5,14 @@
     "pages/goods_list/index",
     "pages/goods_detail/index",
     "pages/cart/index",
-    "pages/collect/main",
-    "pages/order/main",
-    "pages/search/main",
+    "pages/collect/index",
+    "pages/order/index",
+    "pages/search/index",
     "pages/user/main",
-    "pages/feedback/main",
-    "pages/login/main",
-    "pages/auth/main",
-    "pages/pay/main"
+    "pages/feedback/index",
+    "pages/login/index",
+    "pages/auth/index",
+    "pages/pay/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

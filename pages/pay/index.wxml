@@ -1,2 +1,75 @@
 <!--pages/pay/index.wxml-->
-<text>pages/pay/index.wxml</text>
+<view class="pay-container">
+	<!-- 地址 -->
+	<view class="address">
+		<view class="address-userinfo">
+			<view class="address-username">
+				收货人：{{address.userName}}
+			</view>
+			<view class="address-phone">
+				{{address.telNumber}}
+			</view>
+		</view>
+		<view class="address-content">
+			{{address.provinceName + address.cityName + address.countyName + address.detailInfo}}
+		</view>
+	</view>
+
+	<view class="cart-tip">
+		优购购物车
+	</view>
+
+	<!-- 购物车商品列表 -->
+	<view class="goods-list">
+		<!-- 空占位符 -->
+		<image wx:if="{{cartList.length === 0}}" class="" src="https://newtheory.oss-cn-shenzhen.aliyuncs.com/media/2e276ffd52b41b9e76d8c88b61d2e921e3cb50ed9081.png" mode="widthFix" lazy-load="false" binderror="" bindload="" />
+
+		<view class="goods-item" data-idx="{{cartIdx}}" wx:for-index="cartIdx" wx:for="{{cartList}}" wx:for-item="cartItem" wx:key="goods_id">
+
+			<view class="pic">
+				<image class="" src="{{cartItem.pics[0].pics_sma ? cartItem.pics[0].pics_sma : 'https://newtheory.oss-cn-shenzhen.aliyuncs.com/media/2e276ffd52b41b9e76d8c88b61d2e921e3cb50ed9081.png'}}" mode="widthFix" lazy-load="false" />
+			</view>
+			<view class="right-content">
+				<view class="goods-name">
+					{{cartItem.goods_name}}
+				</view>
+				<view class="goods-price-num">
+					<view class="goods-price">
+						￥ {{cartItem.goods_price}}
+					</view>
+					<view class="goods-num">
+
+						x{{cartItem.num}}
+
+					</view>
+
+				</view>
+
+			</view>
+
+
+		</view>
+	</view>
+
+	<!-- 底部工具栏 -->
+	<view class="bott-tool-wrapper">
+		<view class="bott-tool">
+			<view class="all-checked">
+
+			</view>
+
+			<view class="total-price-wrapper">
+				<view class="total-price">合计:<text>￥ {{totalPrice}}</text> </view>
+
+				<view class="trans-tip">
+					包含运费
+				</view>
+			</view>
+
+			<view class="buy" bindtap="tapPay">
+				支付({{totalNum}})
+			</view>
+		</view>
+	</view>
+
+</view>

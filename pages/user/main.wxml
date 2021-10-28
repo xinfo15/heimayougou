@@ -1,2 +1,178 @@
 <!--pages/user/main.wxml-->
-<text>pages/user/main.wxml</text>
+<view class="user-container">
+
+  <view class="avatar-wrapper" >
+    <view class="avatar" wx:if="{{userinfo.avatarUrl}}">
+      <image class="big-avatar" src="{{userinfo.avatarUrl}}" lazy-load="false" binderror="" bindload="" />
+      <view class="mini-avatar-wrapper">
+        <image class="mini-avatar" src="{{userinfo.avatarUrl}}" lazy-load="false" binderror="" bindload="" />
+        <view class="nickname">
+          {{userinfo.nickName}}
+        </view>
+      </view>
+    </view>
+    
+    <view class="go-login" wx:else>
+      <navigator url="/pages/login/index" open-type="navigate">
+        去登录
+      </navigator>
+    </view>
+  </view>
+
+  <view class="user-content">
+    <view class="user-main">
+      <!-- 收藏 -->
+      <view class="colle-list">
+
+        <navigator url="/pages/collect/index?active_id=2" class="colle-item">
+          <view class="num">
+            0
+          </view>
+          <view>
+            收藏的店铺
+          </view>
+            
+        </navigator>
+
+        <navigator url="/pages/collect/index?active_id=0" class="colle-item">
+          <view class="num">
+            0
+          </view>
+          <view>
+            收藏的商品
+          </view>
+            
+        </navigator>
+
+        <view class="colle-item">
+          <view class="num">
+            0
+          </view>
+          <view>
+            关注的商品
+          </view>
+            
+        </view>
+
+        <navigator url="/pages/collect/index?active_id=3" class="colle-item">
+          <view class="num">
+            0
+          </view>
+          <view>
+            我的足迹
+          </view>
+            
+        </navigator>
+
+      </view>
+
+      <!-- 订单 -->
+      <view class="order-wrapper">
+        <view class="order-title">
+          我的订单
+        </view>
+
+        <view class="order-list">
+        
+          <navigator url="/pages/order/index?active_id=0" class="order-item">
+
+            <view class="iconfont icon-ding_dan">
+              
+            </view>
+            <view>
+              全部订单
+            </view>
+          </navigator>
+
+          <navigator url="/pages/order/index?active_id=1"  class="order-item">
+
+            <view class="iconfont icon-fukuantongzhi">
+              
+            </view>
+            <view>
+              待付款
+            </view>
+          </navigator>
+
+          <navigator url="/pages/order/index?active_id=2"  class="order-item">
+
+            <view class="iconfont icon-receipt-address">
+              
+            </view>
+            <view>
+              待收货
+            </view>
+          </navigator>
+
+          <navigator url="/pages/order/index?active_id=3"  class="order-item">
+
+            <view class="iconfont icon-tuihuotuikuan_dianpu">
+              
+            </view>
+            <view>
+              退款/退货
+            </view>
+          </navigator>
+
+        </view>
+      </view>
+
+      <!-- 收货地址管理 -->
+      <view class="address block">
+        <view>
+          收货地址管理
+        </view>
+        <view class="arrow-icon">
+          >
+        </view>
+      </view>
+
+      <!-- 联系 -->
+      <view class="contact">
+        <view class="contact-service">
+          <view>
+            联系客服
+          </view>
+          <view class="right-content">
+            400-618-4000
+          </view>
+        </view>
+
+        <navigator url="/pages/feedback/index" class="suggest">
+          <view>
+            意见反馈
+          </view>
+          <view class="right-content">
+            >
+          </view>
+            
+        </navigator>
+
+        <view class="about-us">
+          <view>
+            关于我们
+          </view>
+          <view class="right-content">
+            >
+          </view>
+            
+        </view>
+
+
+      </view>
+
+      <!-- 推荐给他人 -->
+      <view class="recommend block">
+        <view>
+          把应用推荐给他人
+        </view>
+        <view class="arrow-icon">
+          >
+        </view>
+      </view>
+        
+      
+    </view>
+  </view>
+
+</view>

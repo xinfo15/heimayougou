@@ -1,0 +1,142 @@
+/* pages/user/main.wxss */
+.user-container {
+  min-height: 120vh;
+  background-color: rgb(237, 236, 232);
+
+  .avatar-wrapper {
+    height: 45vh;
+    background-color: var(--themeColor);
+    position: relative;
+
+    .avatar {
+      .big-avatar {
+        height: 50vh !important;
+        filter: blur(10rpx);
+      }
+      .mini-avatar-wrapper {
+        position: absolute;
+        left: 50%;
+        top: 20%;
+        transform: translate3d(-50%, 0, 0);
+        text-align: center;
+
+        .mini-avatar {
+          width: 150rpx;
+          height: 150rpx;
+          border-radius: 50%;
+          margin-bottom: 110rpx;
+        }
+
+        .nickname {
+          color: white;
+        }
+      }
+    }
+
+    .go-login {
+      height: 100%;
+      height: 100vh;
+
+      navigator {
+        position: absolute;
+        top: 25%;
+        left: 50%;
+        transform: translate3d(-50%, 0, 0);
+        height: 150rpx;
+        width: 150rpx;
+
+        line-height: 150rpx;
+        text-align: center;
+        border-radius: 50%;
+        font-size: 27rpx;
+        background-color: rgb(240, 240, 240);
+      }
+    }
+  }
+
+  .user-content {
+    position: relative;
+
+    .user-main {
+      position: absolute;
+      width: 94%;
+      left: 50%;
+      transform: translate3d(-50%, 0, 0);
+      top: -60rpx;
+      color: gray;
+      font-size: 28rpx;
+
+      & > view {
+        margin-bottom: 20rpx;
+      }
+
+      .colle-list {
+        display: flex;
+        background-color: white;
+        padding: 10rpx 0;
+
+        .colle-item {
+          flex: 1 1 auto;
+          text-align: center;
+
+          .num {
+            color: var(--themeColor);
+          }
+        }
+      }
+
+      .order-wrapper {
+        background-color: white;
+
+        .order-title {
+          font-size: 28rpx;
+          padding: 20rpx;
+          border-bottom: 1px solid lightgray;
+        }
+
+        .order-list {
+          display: flex;
+          padding: 10rpx 0;
+
+          .order-item {
+            flex: 1 1 auto;
+            text-align: center;
+
+            .iconfont {
+              color: var(--themeColor);
+              font-size: 45rpx;
+            }
+          }
+        }
+      }
+
+      .block {
+        padding: 20rpx;
+        background-color: white;
+        display: flex;
+        justify-content: space-between;
+
+        .arrow-icon {
+          color: rgb(212, 211, 213);
+        }
+      }
+
+      .contact {
+        background-color: white;
+
+        .contact-service,
+        .suggest,
+        .about-us {
+          display: flex;
+          justify-content: space-between;
+          border-bottom: 1px solid lightgray;
+          padding: 20rpx;
+
+          .right-content {
+            color: #d4d3d5;
+          }
+        }
+      }
+    }
+  }
+}

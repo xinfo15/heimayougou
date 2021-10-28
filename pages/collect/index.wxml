@@ -1,2 +1,38 @@
 <!--pages/collect/index.wxml-->
-<text>pages/collect/index.wxml</text>
+
+<view class="collect-container">
+	<Tabs bindchangetab="changeTabAcitive" tabList="{{tabList}}">
+		<block class="wx-slot">
+			<block wx:if="{{tabList[0].isActive}}">
+				<view class="content-list">
+					<navigator class="content-item" wx:for="{{colleList}}" wx:for-item="goodsItem" wx:key="goods_id" url="/pages/goods_detail/index?gid={{goodsItem.goods_id}}">
+						<view class="left-img">
+							<image class="" src="{{goodsItem.pics.length ? goodsItem.pics[0].pics_mid : 'https://newtheory.oss-cn-shenzhen.aliyuncs.com/media/2e276ffd52b41b9e76d8c88b61d2e921e3cb50ed9081.png'}}" mode="widthFix" lazy-load="true" binderror="" bindload="" />
+						</view>
+						<view class="right-content">
+							<view class="content-name">
+								{{goodsItem.goods_name}}
+							</view>
+							<view class="content-price">
+								￥ {{goodsItem.goods_price}}
+							</view>
+						</view>
+					</navigator>
+
+          <image wx:if="{{colleList.length === 0}}" class="" src="https://newtheory.oss-cn-shenzhen.aliyuncs.com/media/2e276ffd52b41b9e76d8c88b61d2e921e3cb50ed9081.png" mode="widthFix" lazy-load="false" binderror="" bindload="" />
+            
+				</view>
+			</block>
+			<block wx:elif="{{tabList[1].isActive}}">
+				1
+			</block>
+			<block wx:elif="{{tabList[2].isActive}}">
+				2
+			</block>
+			<block wx:elif="{{tabList[3].isActive}}">
+				3
+			</block>
+		</block>
+
+	</Tabs>
+</view>

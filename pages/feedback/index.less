@@ -1,0 +1,54 @@
+/* pages/feedback/index.wxss */
+.feedback-container {
+  background-color: rgb(238, 238, 238);
+  height: 100vh;
+  color: rgb(110, 107, 105);
+
+  .question {
+    margin: 15rpx 20rpx 0 20rpx;
+
+    .question-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-bottom: 20rpx;
+
+      .question-item-wrapper {
+        width: 33.333%;
+
+        .question-item {
+          margin: 10rpx;
+          text-align: center;
+          background-color: white;
+          padding: 12rpx 0;
+
+          &.active {
+            background-color: rgb(169, 216, 255);
+            color: white;
+          }
+        }
+      }
+    }
+
+    .edit-field {
+      background-color: white;
+      margin-bottom: 20rpx;
+
+      textarea {
+        padding: 15rpx;
+      }
+    }
+
+    .submit-btn {
+      display: flex;
+      justify-content: flex-end;
+
+      button {
+        width: 180rpx;
+        margin: 0;
+        background-color: #e64340;
+        color: white;
+      }
+    }
+  }
+}

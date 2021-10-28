@@ -1,0 +1,10 @@
+<!--components/UploadPic/UploadPic.wxml-->
+<view class="upload-pic-container">
+  <button class="select-img-btn" bindtap="selectImg">+</button>
+  <view class="img-wrapper" wx:for="{{filePaths}}" wx:for-item="filePath" wx:key="filePath" wx:for-index="fileIdx">
+    <image class="" src="{{filePath}}" mode="aspectFill" lazy-load="false" binderror="" bindload="" />
+    <view class="remove-btn" data-idx="{{fileIdx}}" bindtap="removeImg">
+      x
+    </view>
+  </view>
+</view>

@@ -1,2 +1,53 @@
 <!--pages/order/index.wxml-->
-<text>pages/order/index.wxml</text>
+<view class="order-container">
+  <Tabs tabList="{{tabList}}" bindchangetab="changeTabAcitive">
+    <block class="wx-slot">
+      <block wx:if="{{tabList[0].isActive}}">
+        <view class="order-list">
+          <view class="order-item" wx:for="{{orderList}}" wx:for-item="orderItem" wx:for-index="orderIdx" wx:key="goods_id">
+            <view class="order-num">
+              <view class="left-tip">
+                订单编号
+              </view>
+              <view>
+                {{ orderItem.order_number }}
+              </view>
+            </view>
+
+            <view class="order-price">
+              <view class="left-tip">
+                订单价格
+              </view>
+              <view class="price">
+                ￥ {{orderItem.goods_price}}
+              </view>
+                
+            </view>
+
+            <view class="order-date">
+              <view class="left-tip">
+                订单日期
+              </view>
+              <view>
+                {{orderItem.create_time}}
+              </view>
+                
+            </view>
+          </view>
+        </view>
+          
+      </block>
+      <block wx:if="{{tabList[1].isActive}}">
+        1
+      </block>
+      <block wx:if="{{tabList[2].isActive}}">
+        2
+      </block>
+      <block wx:if="{{tabList[3].isActive}}">
+        3
+      </block>
+        
+    </block>
+      
+  </Tabs>
+</view>

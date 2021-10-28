@@ -17,7 +17,7 @@
 			</view>
 		</view>
 		<view class="address-content">
-			{{address.provinceName + address.cityName + address.countyName + address.detailInfo}}
+			{{ address.full }}
 		</view>
 	</view>
 
@@ -79,7 +79,7 @@
 				</view>
 			</view>
 
-			<view class="buy">
+			<view class="buy" bindtap="tapPay">
 				结算({{totalNum}})
 			</view>
 		</view>

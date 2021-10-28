@@ -13,8 +13,8 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/cart/index",
-          "pathName": "pages/cart/index",
+          "name": "pages/feedback/index",
+          "pathName": "pages/feedback/index",
           "query": "",
           "scene": null
         },

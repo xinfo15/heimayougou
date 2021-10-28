@@ -1,66 +1,53 @@
 // pages/search/index.js
-Page({
+import { request } from '../../request/index.js'
 
+Page({
   /**
    * 页面的初始数据
    */
   data: {
-
+    inputValue: '',
+    searchList: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    // 把原函数交给防抖函数，生成防抖原函数后返回赋值
+    this.search = this.debounce(this.search, 500)
   },
-
   /**
-   * 生命周期函数--监听页面初次渲染完成
+   * methods
    */
-  onReady: function () {
+  // 搜索，防抖优化
+  async search(e) {
+    const query = e.detail.value
 
+    const res = await request({
+      url: '/api/public/v1/goods/qsearch',
+      data: { query },
+    })
+
+    this.setData({
+      searchList: res
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  // 防抖函数
+  debounce(callback, delay) {
+    let timer
+    return (e) => {
+      clearTimeout(timer)
+      timer = setTimeout(() => {
+        callback(e)
+      }, delay)
+    }
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  // 取消按钮
+  cancel() {
+    this.setData({
+      inputValue: '',
+      searchList: []
+    })
   }
 })

@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "Tabs": "../../components/Tabs/Tabs",
+    "SelectImg": "../../components/SelectImg/SelectImg"
+  },
+  "navigationBarTitleText": "意见反馈"
 }

@@ -1,1 +1,1 @@
-/* pages/order/index.wxss */
+.order-container .order-list .order-item{padding:25rpx 20rpx 15rpx 20rpx;border-bottom:1px solid lightgray}.order-container .order-list .order-item>view{display:flex;justify-content:space-between;align-items:center;margin-bottom:10rpx}.order-container .order-list .order-item>view .left-tip{color:gray}.order-container .order-list .order-item .order-num{color:gray}.order-container .order-list .order-item .order-price .price{color:var(--themeColor);font-size:38rpx}

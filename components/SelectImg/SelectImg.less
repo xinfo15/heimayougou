@@ -1,0 +1,46 @@
+/* components/UploadPic/UploadPic.wxss */
+.upload-pic-container {
+  padding: 15rpx;
+  display: flex;
+  flex-wrap: wrap;
+
+  .select-img-btn {
+    background-color: rgb(248, 248, 248);
+    line-height: 100rpx;
+    height: 100rpx;
+    width: 100rpx;
+    border-radius: 10rpx;
+    color: rgb(204, 204, 204);
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    border: 1px solid rgb(228, 228, 228);
+    margin-right: 15rpx;
+  }
+
+  .img-wrapper {
+    position: relative;
+    height: 100rpx;
+    width: 100rpx;
+    margin-right: 15rpx;
+
+    image {
+      height: 100%;
+      width: 100%;
+    }
+
+    .remove-btn {
+      position: absolute;
+      line-height: 30rpx;
+      height: 30rpx;
+      width: 30rpx;
+      text-align: center;
+      background-color: red;
+      color: white;
+      top: -10rpx;
+      right: -10rpx;
+      border-radius: 50%;
+      font-size: 20rpx;
+    }
+  }
+}
